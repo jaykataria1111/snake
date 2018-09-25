@@ -5,7 +5,7 @@ package snakepack;
 
 /**
  * @author Jay, Nithil, Kaushal
- * The following Class represents a board from the outside.
+ * The following class represents a view of the playing board from the outside.
  *
  */
 public class Board {
