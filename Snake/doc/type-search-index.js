@@ -1,0 +1,1 @@
+typeSearchIndex = [{"p":"snakepack","l":"Block"},{"p":"snakepack","l":"Board"},{"p":"snakepack","l":"Controller"},{"p":"snakepack","l":"Food"},{"p":"snakepack","l":"Level"},{"p":"snakepack","l":"Model"},{"p":"snakepack","l":"Player"},{"p":"snakepack","l":"Position"},{"p":"snakepack","l":"Snake"},{"p":"snakepack","l":"Statistics"},{"p":"snakepack","l":"View"}]
