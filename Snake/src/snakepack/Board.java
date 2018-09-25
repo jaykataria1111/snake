@@ -26,6 +26,7 @@ public class Board {
 
 	/**
 	 * The following method draws the board.
+	 * 
 	 */
 	public void drawBoard()
 	{
