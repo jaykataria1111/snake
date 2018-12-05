@@ -7,16 +7,20 @@ import java.util.ArrayList;
 import java.util.Stack;
 
 import Controller.ValveResponse;
+import message.DownButtonMessage;
+import message.KeyPressed;
+import message.LeftButtonMessage;
 import message.Message;
+import message.MoveSnakeMessage;
+import message.RightButtonMessage;
+import message.UpButtonMessage;
 
 
 
 
 
 
-enum KeyPressed{
-	LEFT, RIGHT, UP, DOWN;
-}
+
 
 /**
  * THe following class represents the snake on the screen.
@@ -263,7 +267,18 @@ public class Snake implements Valve{
 	@Override
 	public ValveResponse execute(Message message) {
 		// TODO Auto-generated method stub
-		return null;
+		
+		if(!(message instanceof MoveSnakeMessage))
+		return ValveResponse.MISS;
+		
+		
+		MoveSnakeMessage msg = (MoveSnakeMessage) message;
+		
+		this.moveSnake(msg.getKey());
+		
+		
+		return ValveResponse.EXECUTED;
+
 	}
 
 

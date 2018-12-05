@@ -58,7 +58,7 @@ public class Statistics implements Valve{
 	@Override
 	public ValveResponse execute(Message message) {
 		// TODO Auto-generated method stub
-		return null;
+		return ValveResponse.MISS;
 	}
 
 }

@@ -17,6 +17,7 @@ import message.Message;
 
 import Controller.*;
 
+import Model.Valve;
 
 /**
  * @author Jay, Nithil, Kaushal
@@ -30,6 +31,7 @@ public class Controller {
 	View view;
 	private BlockingQueue<Message> messageQueue;
 	
+	private LinkedList<Valve> valves = new LinkedList<Valve>();
 	
 
 	
@@ -43,9 +45,24 @@ public class Controller {
 		this.model = model;
 		this.messageQueue = queue;
 		
+		addValves(valves);
+		
 	}
 	
 	
+		private void addValves(LinkedList<Valve> valves2) {
+		// TODO Auto-generated method stub
+		
+			valves2.add(model.getFood());
+			valves2.add(model.getLevel());
+			valves2.add(model.getSnake());
+			valves2.add(model.getStats());
+			
+			valves2.add(view.getPlayPanel());
+			
+	}
+
+
 		public void mainLoop() throws Exception{ 
 			
 			ValveResponse response = ValveResponse.EXECUTED; 
@@ -53,8 +70,23 @@ public class Controller {
 		
 		while(response != ValveResponse.FINISH){
 		
-
-		//message = (Message) messageQueue.take(); 
+			try{		
+		message = (Message) messageQueue.take(); 
+			}
+			catch(InterruptedException e){
+				  e.printStackTrace();
+				 }
+		
+		
+		for(Valve valve : valves)
+		{
+			response = valve.execute(message);
+		if(response != ValveResponse.MISS) 
+			break;
+		 
+		}
+		
+		 
 		
 		 
 		 System.out.println(messageQueue.size());

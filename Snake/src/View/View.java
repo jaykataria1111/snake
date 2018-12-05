@@ -76,4 +76,16 @@ public class View {
 		
 	}
 
+	/**
+	 * @return the playPanel
+	 */
+	public PlayPanel getPlayPanel() {
+		return playPanel;
+	}
+
+	
+	
+	
+	
+
 }
