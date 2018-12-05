@@ -45,13 +45,8 @@ public class Block implements Valve{
 	
 	
 	
-	/**
-	 * Draws the Block on the screen.
-	 */
-	public void drawBlock()
-	{
-		
-	}
+
+
 
 
 
