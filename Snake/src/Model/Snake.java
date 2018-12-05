@@ -3,7 +3,17 @@
  */
 package Model;
 
+import java.util.ArrayList;
 import java.util.Stack;
+
+
+
+
+
+
+enum KeyPressed{
+	LEFT, RIGHT, UP, DOWN;
+}
 
 /**
  * THe following class represents the snake on the screen.
@@ -12,16 +22,192 @@ import java.util.Stack;
  */
 public class Snake {
 
-	
+
 	int snakeLength;
-	Stack<Block> snakeblocks;
+	ArrayList<Block> snakeBlock;
+	Position pos;
+	public static final int BLOCK_SPACE = 1;
 	
+    
 	/**
+	 * @throws IOException 
 	 * 
 	 */
-	public Snake() {
-		// TODO Auto-generated constructor stub
+	public Snake(Position pos,int snakeLength) {
+
+		this.pos = pos;
+		this.snakeLength = snakeLength;
+		this.snakeBlock = new ArrayList<Block>();
+		for(int i=0;i<snakeLength;i++)
+		{
+			addBlockToSnake();
+		}
 	}
+
+
+	public void addBlockToSnake() 
+	{
+		if(snakeBlock.isEmpty())
+		{
+			snakeBlock.add(new Block(this.pos));
+		}
+		else
+		{
+			Position p = new Position(snakeBlock.get(snakeBlock.size()-1).getPos().getxPos(),snakeBlock.get(snakeBlock.size()-1).getPos().getyPos());
+			int xpos  = p.getxPos() - Block.BLOCKSIZE - BLOCK_SPACE ;
+			p.setxPos(xpos);
+			snakeBlock.add(new Block(p));
+
+		}
+	}
+
+
+	public void addBlock() 
+	{
+		
+		
+		int changeInX = snakeBlock.get(snakeBlock.size()-2).getPos().getxPos() - snakeBlock.get(snakeBlock.size()-1).getPos().getxPos();
+		int changeInY = snakeBlock.get(snakeBlock.size()-2).getPos().getyPos() - snakeBlock.get(snakeBlock.size()-1).getPos().getyPos();
+
+		if(changeInX > 0)
+		{
+			Position p = new Position(snakeBlock.get(snakeBlock.size()-1).getPos().getxPos(),snakeBlock.get(snakeBlock.size()-1).getPos().getyPos());
+			int ypos  = p.getyPos() - Block.BLOCKSIZE - BLOCK_SPACE ;
+			p.setxPos(ypos);
+			snakeBlock.add(new Block(p));
+
+
+		}
+		else if(changeInX < 0)
+		{
+			Position p = new Position(snakeBlock.get(snakeBlock.size()-1).getPos().getxPos(),snakeBlock.get(snakeBlock.size()-1).getPos().getyPos());
+			int ypos  = p.getyPos() + Block.BLOCKSIZE + BLOCK_SPACE ;
+			p.setxPos(ypos);
+			snakeBlock.add(new Block(p));
+
+		}
+		else if(changeInY > 0 )
+		{
+			Position p = new Position(snakeBlock.get(snakeBlock.size()-1).getPos().getxPos(),snakeBlock.get(snakeBlock.size()-1).getPos().getyPos());
+			int xpos  = p.getxPos() - Block.BLOCKSIZE - BLOCK_SPACE ;
+			p.setxPos(xpos);
+			snakeBlock.add(new Block(p));
+
+		}
+		else
+		{
+			Position p = new Position(snakeBlock.get(snakeBlock.size()-1).getPos().getxPos(),snakeBlock.get(snakeBlock.size()-1).getPos().getyPos());
+			int xpos  = p.getxPos()  + Block.BLOCKSIZE + BLOCK_SPACE;
+			p.setxPos(xpos);
+			snakeBlock.add(new Block(p));
+		}
+
+
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	public void moveSnake(KeyPressed key)
+	{
+
+		Position current;
+		Position previous = new Position(snakeBlock.get(0).getPos());
+
+		for(int i=1;i<snakeBlock.size();i++)
+		{
+
+			current = new Position(snakeBlock.get(i).getPos());
+
+			snakeBlock.get(i).setPos(previous);
+
+			previous = new Position(current);
+
+		}
+
+
+		if(key == KeyPressed.LEFT )
+		{
+			Position p = new Position(snakeBlock.get(0).getPos());
+			p.setxPos(p.getxPos() - Block.BLOCKSIZE - BLOCK_SPACE);
+			if(p.getxPos()<0)
+			{
+				p.setxPos(297-p.getxPos());
+			}
+
+			snakeBlock.get(0).setPos(p);
+
+		}
+
+		if(key == KeyPressed.RIGHT)
+		{
+			Position p = new Position(snakeBlock.get(0).getPos());
+			p.setxPos(p.getxPos()+ Block.BLOCKSIZE + BLOCK_SPACE);
+			if(p.getxPos()>297)
+			{
+				p.setxPos(p.getxPos()-308);
+			}
+			
+			snakeBlock.get(0).setPos(p);
+
+		}
+
+		if(key == KeyPressed.UP )
+		{
+			Position p = new Position(snakeBlock.get(0).getPos());
+			p.setyPos(p.getyPos() - Block.BLOCKSIZE - BLOCK_SPACE);
+			if(p.getyPos()<0)
+			{
+				p.setyPos(297-p.getyPos());
+			}
+			snakeBlock.get(0).setPos(p);
+		}
+
+		if(key == KeyPressed.DOWN )
+		{
+			Position p = new Position(snakeBlock.get(0).getPos() );
+			p.setyPos(p.getyPos()+ Block.BLOCKSIZE + BLOCK_SPACE);
+			if(p.getyPos()>297)
+			{
+				p.setyPos(p.getyPos()-308);
+			}
+			snakeBlock.get(0).setPos(p);
+		}
+
+
+
+
+	}
+
+	
+	public Position getHeadPosition()
+	{
+		return snakeBlock.get(0).getPos();
+	}
+	
+	
+	public int getMaxX()
+	{
+		return  snakeBlock.get(0).getPos().getxPos()+ Block.BLOCKSIZE;
+	}
+	
+	public int getMaxY()
+	{
+		return snakeBlock.get(0).getPos().getyPos()+ Block.BLOCKSIZE;
+	}
+
+
+
 
 	/**
 	 * @return the snakeLength
@@ -30,6 +216,7 @@ public class Snake {
 		return snakeLength;
 	}
 
+
 	/**
 	 * @param snakeLength the snakeLength to set
 	 */
@@ -37,35 +224,41 @@ public class Snake {
 		this.snakeLength = snakeLength;
 	}
 
-	/**
-	 * @return the snakeblocks
-	 */
-	public Stack<Block> getSnakeblocks() {
-		return snakeblocks;
-	}
 
 	/**
-	 * @param snakeblocks the snakeblocks to set
+	 * @return the snakeBlock
 	 */
-	public void setSnakeblocks(Stack<Block> snakeblocks) {
-		this.snakeblocks = snakeblocks;
+	public ArrayList<Block> getSnakeBlock() {
+		return snakeBlock;
 	}
-	
+
+
 	/**
-	 * Draws the Snake on the Screen.
+	 * @param snakeBlock the snakeBlock to set
 	 */
-	public void drawSnake()
-	{
-		
+	public void setSnakeBlock(ArrayList<Block> snakeBlock) {
+		this.snakeBlock = snakeBlock;
 	}
-	
+
+
 	/**
-	 * THe following method simulizes a snake eating food  i.e. increasing its length.
-	 * @param b is the food to eat.
+	 * @return the pos
 	 */
-	public void eatFood(Block b)
-	{
+	public Position getPos() {
+		return pos;
 	}
+
+
+	/**
+	 * @param pos the pos to set
+	 */
+	public void setPos(Position pos) {
+		this.pos = pos;
+	}
+
+
+
+
 
 }
 

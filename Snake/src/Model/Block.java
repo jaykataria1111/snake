@@ -12,6 +12,7 @@ public class Block {
 	
 
 	Position pos;
+	public static final int BLOCKSIZE = 10;
 
 	/**
 	 * @param pos is the position of the Block.
@@ -36,6 +37,10 @@ public class Block {
 	public void setPos(Position pos) {
 		this.pos = pos;
 	}
+	
+	
+	
+	
 	
 	/**
 	 * Draws the Block on the screen.

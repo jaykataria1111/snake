@@ -22,6 +22,11 @@ public class Position {
 		this.xPos = xPos;
 		this.yPos = yPos;
 	}
+	public Position(Position pos) {
+		// TODO Auto-generated constructor stub
+		this.xPos = pos.getxPos();
+		this.yPos = pos.getyPos();
+	}
 	/**
 	 * @return the xPos
 	 */
