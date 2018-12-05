@@ -3,6 +3,7 @@
  */
 package View;
 
+import Model.Valve;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.LayoutManager;

@@ -3,12 +3,15 @@
  */
 package Model;
 
+import Controller.ValveResponse;
+import message.Message;
+
 /**
  * The following class represents a position on the Screen
  * @author Jay, Nithil, Kaushal
  *
  */
-public class Position {
+public class Position implements Valve{
 
 	
 	private int xPos;
@@ -50,6 +53,11 @@ public class Position {
 	 */
 	public void setyPos(int yPos) {
 		this.yPos = yPos;
+	}
+	@Override
+	public ValveResponse execute(Message message) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	

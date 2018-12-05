@@ -3,6 +3,7 @@
  */
 package View;
 
+import Model.Valve;
 import message.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;

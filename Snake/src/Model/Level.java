@@ -1,11 +1,14 @@
 package Model;
 
+import Controller.ValveResponse;
+import message.Message;
+
 /**
  * The following class represents a level in the game,
  * @author Jay, Nithil, Kaushal
  *
  */
-public class Level {
+public class Level implements Valve{
 
 	public static final int LEVEL1 = 1;
 	public static final int LEVEL2 = 2;
@@ -34,6 +37,12 @@ public class Level {
 	 */
 	public void setCurrentLevel(int currentLevel) {
 		this.currentLevel = currentLevel;
+	}
+
+	@Override
+	public ValveResponse execute(Message message) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	

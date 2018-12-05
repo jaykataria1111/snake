@@ -3,6 +3,8 @@
  */
 package View;
 
+
+import Model.Valve;
 import message.Message;
 
 import java.util.concurrent.BlockingQueue;

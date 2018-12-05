@@ -3,12 +3,15 @@
  */
 package Model;
 
+import Controller.ValveResponse;
+import message.Message;
+
 /**
  * The following class describes a block on the screen.
  * @author Jay, Nithil, Kaushal
  *
  */
-public class Block {
+public class Block implements Valve{
 	
 
 	Position pos;
@@ -48,6 +51,14 @@ public class Block {
 	public void drawBlock()
 	{
 		
+	}
+
+
+
+	@Override
+	public ValveResponse execute(Message message) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	

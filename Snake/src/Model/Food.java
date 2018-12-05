@@ -5,7 +5,7 @@ package Model;
  * @author Jay, Nithil, Kaushal
  *
  */
-public class Food extends Block {
+public class Food extends Block  {
 
 	/**
 	 * The following is where the foods position is on screen

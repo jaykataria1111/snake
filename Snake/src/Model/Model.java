@@ -3,13 +3,14 @@
  */
 package Model;
 
-
+import Controller.ValveResponse;
+import message.Message;
 
 /**
  * @author Jay, Nithil, Kaushal
  *The following class is a Model class
  */
-public class Model {
+public class Model implements Valve{
 	
 	Level level;
 	Statistics stats;
@@ -140,6 +141,12 @@ public class Model {
 	public void addHighScore(Statistics stat)
 	{
 		
+	}
+
+	@Override
+	public ValveResponse execute(Message message) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

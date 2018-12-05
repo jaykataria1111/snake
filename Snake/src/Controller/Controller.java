@@ -15,14 +15,7 @@ import message.Message;
 
 
 
-
-enum ValveResponse
-{
- MISS,
- EXECUTED,
- FINISH
-};
-
+import Controller.*;
 
 
 /**

@@ -3,12 +3,15 @@
  */
 package Model;
 
+import Controller.ValveResponse;
+import message.Message;
+
 /**
  * @author Jay, Nithil, Kaushal
  * The following class keeps the statistics of game.
  *
  */
-public class Statistics {
+public class Statistics implements Valve{
 
 	private int currentScore;
 	public static int[] HighScore = new int[5];
@@ -50,6 +53,12 @@ public class Statistics {
 	 */
 	public static void setHighScore(int[] highScore) {
 		HighScore = highScore;
+	}
+
+	@Override
+	public ValveResponse execute(Message message) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

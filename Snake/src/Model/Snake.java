@@ -6,6 +6,9 @@ package Model;
 import java.util.ArrayList;
 import java.util.Stack;
 
+import Controller.ValveResponse;
+import message.Message;
+
 
 
 
@@ -20,7 +23,7 @@ enum KeyPressed{
  * @author Jay, Nithil, Kaushal
  *
  */
-public class Snake {
+public class Snake implements Valve{
 
 
 	int snakeLength;
@@ -254,6 +257,13 @@ public class Snake {
 	 */
 	public void setPos(Position pos) {
 		this.pos = pos;
+	}
+
+
+	@Override
+	public ValveResponse execute(Message message) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 
