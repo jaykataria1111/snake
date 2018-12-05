@@ -130,17 +130,7 @@ public class PlayPanel extends JPanel  implements Valve,ActionListener{
 	        	key = KeyPressed.RIGHT;
 	        	//System.out.println("Pressed");
 	        }
-	        if (message instanceof UpButtonMessage)  {
-	            
-	        	key = KeyPressed.UP;
-	        	//System.out.println("Pressed");
-	        }
-
-	        if (message instanceof DownButtonMessage) {
-	            
-	        	key = KeyPressed.DOWN;
-	        	//System.out.println("Pressed");
-	        }
+	       
 	       
 		
 		
