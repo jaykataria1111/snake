@@ -21,6 +21,7 @@ public class View {
 	JButton playButton;
 	JButton levelButton;
 	JButton highScoreButton;
+	PlayPanel playPanel;
 
 	/**
 	 * 
@@ -34,6 +35,12 @@ public class View {
 		outerFrame.setDefaultLookAndFeelDecorated(true);
 		
 		
+		 playPanel = new PlayPanel(queue);
+		
+		
+		outerFrame.add(playPanel);
+		outerFrame.pack();
+		outerFrame.setVisible(true);
 		
 	}
 	

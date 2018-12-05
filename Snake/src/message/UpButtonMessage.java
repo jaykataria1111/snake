@@ -7,19 +7,14 @@ package message;
  * @author jay
  *
  */
-public abstract class Message {
+public class UpButtonMessage extends Message {
 
-	
-	
-	
 	/**
 	 * 
 	 */
-	public Message() {
+	public UpButtonMessage() {
 		// TODO Auto-generated constructor stub
-	
+		super();
 	}
 
-	
-	
 }
