@@ -6,6 +6,7 @@ package Controller;
 import java.awt.List;
 import java.util.LinkedList;
 import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingQueue;
 
 import Model.Model;
 import View.View;
@@ -98,14 +99,16 @@ public class Controller {
 	
 	
 	
-	public static void main(String[] args)
+	public static void main(String[] args) throws Exception
 	{
 		
-		view = View.init(queue);	
-		model = new Model();
-		Controller game = new Controller(view,model, queue); game.mainLoop();
-		view.dispose();
-		queue.clear();
+		BlockingQueue<Message> queue = new LinkedBlockingQueue<Message>();
+		View gameView = new View(queue);
+		Model mod = new Model();
+		Controller mainGame = new Controller(gameView,mod, queue); 
+		mainGame.mainLoop();
+		
+		
 		
 	}
 	
