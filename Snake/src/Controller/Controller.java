@@ -3,6 +3,8 @@
  */
 package Controller;
 
+import java.util.concurrent.BlockingQueue;
+
 import Model.Model;
 import View.View;
 
@@ -13,8 +15,11 @@ import View.View;
  */
 public class Controller {
 	
+	
 	Model model;
 	View view;
+	
+	private BlockingQueue<Message> messageQueue;
 
 	/**
 	 * 
@@ -53,5 +58,23 @@ public class Controller {
 	{
 		
 	}
+	
+	
+	
+	public static void main(String[] args)
+	{
+		
+		view = View.init(queue);	
+		model = new Model();
+		Controller game = new Controller(view,model, queue); game.mainLoop();
+		view.dispose();
+		queue.clear();
+		
+	}
+	
+	
+	
+	
+	
 
 }
