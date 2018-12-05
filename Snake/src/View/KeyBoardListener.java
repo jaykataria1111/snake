@@ -47,6 +47,7 @@ public class KeyBoardListener implements KeyListener {
         if (keya == KeyEvent.VK_LEFT )  {
             
         	try {
+        		//System.out.println("Working");
 				queue.put(new LeftButtonMessage());
 			} catch (InterruptedException e1) {
 				// TODO Auto-generated catch block
@@ -58,6 +59,7 @@ public class KeyBoardListener implements KeyListener {
         if(keya == KeyEvent.VK_RIGHT ) {
 
         	try {
+        		//System.out.println("Working");
 				queue.put(new RightButtonMessage());
 			} catch (InterruptedException e1) {
 				// TODO Auto-generated catch block
@@ -68,6 +70,7 @@ public class KeyBoardListener implements KeyListener {
 
         if (keya == KeyEvent.VK_UP  )  {
         	try {
+        		//System.out.println("Working");
 				queue.put(new UpButtonMessage());
 			} catch (InterruptedException e1) {
 				// TODO Auto-generated catch block
@@ -78,6 +81,7 @@ public class KeyBoardListener implements KeyListener {
 
         if (keya == KeyEvent.VK_DOWN ) {
         	try {
+        		//System.out.println("Working");
 				queue.put(new DownButtonMessage());
 			} catch (InterruptedException e1) {
 				// TODO Auto-generated catch block

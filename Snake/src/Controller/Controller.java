@@ -10,11 +10,13 @@ import java.util.concurrent.LinkedBlockingQueue;
 
 import Model.Model;
 import View.View;
-
+import message.DownButtonMessage;
+import message.FoodCheckMessage;
+import message.LeftButtonMessage;
 import message.Message;
-
-
-
+import message.MoveSnakeMessage;
+import message.RightButtonMessage;
+import message.UpButtonMessage;
 import Controller.*;
 
 import Model.Valve;
@@ -53,12 +55,12 @@ public class Controller {
 		private void addValves(LinkedList<Valve> valves2) {
 		// TODO Auto-generated method stub
 		
-			valves2.add(model.getFood());
-			valves2.add(model.getLevel());
-			valves2.add(model.getSnake());
-			valves2.add(model.getStats());
-			
-			valves2.add(view.getPlayPanel());
+			valves2.add(new LeftButtonValve());
+			valves2.add(new RightButtonValve());
+			valves2.add(new DownButtonValve());
+			valves2.add(new UpButtonValve());
+			valves2.add(new FoodCheckValve());
+			valves2.add(new MoveSnakeValve());
 			
 	}
 
@@ -78,18 +80,24 @@ public class Controller {
 				 }
 		
 		
-		for(Valve valve : valves)
-		{
+			for(Valve valve : valves)
+			{
+				
+			
 			response = valve.execute(message);
-		if(response != ValveResponse.MISS) 
-			break;
-		 
-		}
+			
+			if(response != ValveResponse.MISS)
+			{
+				//System.out.println("Breaking");
+				break;
+			}
+			 
+			}
 		
 		 
 		
 		 
-		 System.out.println(messageQueue.size());
+		 //System.out.println(messageQueue.size());
 		 
 		}
 		
@@ -126,7 +134,7 @@ public class Controller {
 		
 		BlockingQueue<Message> queue = new LinkedBlockingQueue<Message>();
 		View gameView = new View(queue);
-		Model mod = new Model();
+		Model mod = new Model(queue);
 		Controller mainGame = new Controller(gameView,mod, queue); 
 		mainGame.mainLoop();
 		
@@ -135,6 +143,137 @@ public class Controller {
 	}
 	
 	
+	private class LeftButtonValve implements Valve{
+
+		@Override
+		public ValveResponse execute(Message message) {
+			// TODO Auto-generated method stub
+			
+			if(!(message instanceof LeftButtonMessage))
+			return ValveResponse.MISS;
+			
+			
+			
+			view.getPlayPanel().setLeftKey();
+			
+			
+			return ValveResponse.EXECUTED;
+		}
+		
+	}
+	
+	
+	
+	private class RightButtonValve implements Valve{
+
+		@Override
+		public ValveResponse execute(Message message) {
+			// TODO Auto-generated method stub
+			
+			if(!(message instanceof RightButtonMessage))
+			return ValveResponse.MISS;
+			
+			
+			
+			view.getPlayPanel().setRightKey();
+			
+			
+			return ValveResponse.EXECUTED;
+		}
+		
+	}
+	
+	
+	
+	private class UpButtonValve implements Valve{
+
+		@Override
+		public ValveResponse execute(Message message) {
+			// TODO Auto-generated method stub
+			
+			if(!(message instanceof UpButtonMessage))
+			return ValveResponse.MISS;
+			
+			
+			
+			view.getPlayPanel().setUpKey();
+			
+			
+			return ValveResponse.EXECUTED;
+		}
+		
+	}
+	
+	
+	
+	private class DownButtonValve implements Valve{
+
+		@Override
+		public ValveResponse execute(Message message) {
+			// TODO Auto-generated method stub
+			
+			if(!(message instanceof DownButtonMessage))
+			return ValveResponse.MISS;
+			
+			
+			
+			view.getPlayPanel().setDownKey();
+			
+			
+			return ValveResponse.EXECUTED;
+		}
+		
+	}
+	
+	private class MoveSnakeValve implements Valve{
+
+		@Override
+		public ValveResponse execute(Message message) {
+			// TODO Auto-generated method stub
+			if(!(message instanceof MoveSnakeMessage))
+			return ValveResponse.MISS;
+			
+			MoveSnakeMessage msg = (MoveSnakeMessage) message;
+			
+			try {
+				model.getSnake().moveSnake(msg.getKey());
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			view.getPlayPanel().updatePositions(model.getSnake().getxPositions(),model.getSnake().getyPositions());
+			
+			//view.getPlayPanel().repaint();
+			return ValveResponse.EXECUTED;
+		}
+		
+		
+	}
+	
+	
+	private class FoodCheckValve implements Valve{
+
+		@Override
+		public ValveResponse execute(Message message) {
+			// TODO Auto-generated method stub
+			if(!(message instanceof FoodCheckMessage))
+				return ValveResponse.MISS;
+			
+			model.processFood();
+			view.getPlayPanel().setFoodImagexPosition(model.getFoodxPosition());
+			view.getPlayPanel().setFoodImageyPosition(model.getFoodyPosition());
+			
+			return ValveResponse.EXECUTED;
+		}
+		
+	}
+	
+	
+	
+	
+	
+
 	
 	
 	

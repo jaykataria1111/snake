@@ -7,6 +7,7 @@ package View;
 import Model.Valve;
 import message.Message;
 
+import java.io.IOException;
 import java.util.concurrent.BlockingQueue;
 
 import javax.swing.JButton;
@@ -26,9 +27,10 @@ public class View {
 	PlayPanel playPanel;
 
 	/**
+	 * @throws IOException 
 	 * 
 	 */
-	public View(BlockingQueue<Message> queue) {
+	public View(BlockingQueue<Message> queue) throws IOException {
 		// TODO Auto-generated constructor stub
 		outerFrame = new JFrame();
 		outerFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

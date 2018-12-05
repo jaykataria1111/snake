@@ -3,6 +3,9 @@
  */
 package Model;
 
+import java.util.Random;
+import java.util.concurrent.BlockingQueue;
+
 import Controller.ValveResponse;
 import message.Message;
 
@@ -10,7 +13,7 @@ import message.Message;
  * @author Jay, Nithil, Kaushal
  *The following class is a Model class
  */
-public class Model implements Valve{
+public class Model {
 	
 	Level level;
 	Statistics stats;
@@ -18,9 +21,19 @@ public class Model implements Valve{
 	Food food;
 	boolean playStarted;
 	boolean playEnded;
-
+	BlockingQueue<Message> queue;
+	private Random random;
 	
 
+	public Model(BlockingQueue<Message> queue)
+	{
+		level = new Level(0);
+		snake = new Snake(new Position(100,100),5,queue);
+		stats = new Statistics(0);
+		food = new Food(new Position(100,100));
+		random = new Random();
+		this.queue = queue;
+	}
 	
 	/**
 	 * @return the level
@@ -142,11 +155,80 @@ public class Model implements Valve{
 	{
 		
 	}
+	
 
-	@Override
-	public ValveResponse execute(Message message) {
-		// TODO Auto-generated method stub
-		return ValveResponse.MISS;
+	
+	
+	public void processFood()
+	{
+		if(ateFood())
+		{
+			snake.addBlock();
+			this.food = new Food(getRandomPosition());
+		}
 	}
+	
+	
+	
+	public Integer getFoodxPosition()
+	{
+		return this.food.getPos().getxPos();
+	}
+	
+	
+	public Integer getFoodyPosition()
+	{
+		return this.food.getPos().getyPos();
+	}
+	
+	
+	public boolean ateFood()
+	{
+		if(snake.getHeadPosition().getxPos() <= food.getPos().getxPos() && snake.getHeadPosition().getyPos() <= food.getPos().getyPos()  && snake.getMaxX() >= food.getMaxX() && snake.getMaxY()>= food.getMaxY())
+		return true;	
+		
+		
+		
+		int xDifference = snake.getHeadPosition().getxPos() - food.getPos().getxPos();
+		int yDifference = snake.getHeadPosition().getyPos() - food.getPos().getyPos();
+		
+		int xMaxDifference = snake.getMaxX()- food.getMaxX();
+		int yMaxDifference = snake.getMaxY()- food.getMaxY();
+		
+		xDifference = Math.abs(xDifference);
+		yDifference = Math.abs(yDifference);
+		xMaxDifference =  Math.abs(xMaxDifference);
+		yMaxDifference = Math.abs(yMaxDifference);
+		
+		
+		if(xDifference<9 && yDifference<9 && xMaxDifference<9 && yMaxDifference<9)
+			return true;
+		
+		
+		return false;
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	private Position getRandomPosition() {
+		
+		int x =random.nextInt(27)*11;
+		int y =random.nextInt(27)*11;
+
+		return new Position(x,y);
+	}
+
+	
 
 }

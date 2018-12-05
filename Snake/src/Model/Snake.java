@@ -28,7 +28,7 @@ import message.*;
  * @author Jay, Nithil, Kaushal
  *
  */
-public class Snake implements Valve{
+public class Snake {
 
 	BlockingQueue<Message> queue;
 	int snakeLength;
@@ -71,7 +71,7 @@ public class Snake implements Valve{
 	}
 
 
-	public void addBlock() throws InterruptedException 
+	public void addBlock()  
 	{
 		
 		
@@ -111,7 +111,7 @@ public class Snake implements Valve{
 			snakeBlock.add(new Block(p));
 		}
 		
-		queue.put(new PositionMessage(getxPositions(),getyPositions()));
+		
 		
 		
 
@@ -150,7 +150,7 @@ public class Snake implements Valve{
 
 
 
-	public void moveSnake(KeyPressed key)
+	public void moveSnake(KeyPressed key) throws InterruptedException
 	{
 
 		Position current;
@@ -216,8 +216,10 @@ public class Snake implements Valve{
 			snakeBlock.get(0).setPos(p);
 		}
 
-
-			
+		
+		
+		queue.put(new PositionMessage(getxPositions(),getyPositions()));
+		//System.out.println("Code working");
 
 	}
 
@@ -289,22 +291,7 @@ public class Snake implements Valve{
 	}
 
 
-	@Override
-	public ValveResponse execute(Message message) {
-		// TODO Auto-generated method stub
-		
-		if(!(message instanceof MoveSnakeMessage))
-		return ValveResponse.MISS;
-		
-		
-		MoveSnakeMessage msg = (MoveSnakeMessage) message;
-		
-		this.moveSnake(msg.getKey());
-		
-		
-		return ValveResponse.EXECUTED;
-
-	}
+	
 
 
 
