@@ -3,10 +3,26 @@
  */
 package Controller;
 
+import java.awt.List;
+import java.util.LinkedList;
 import java.util.concurrent.BlockingQueue;
 
 import Model.Model;
 import View.View;
+
+import message.Message;
+
+
+
+
+enum ValveResponse
+{
+ MISS,
+ EXECUTED,
+ FINISH
+};
+
+
 
 /**
  * @author Jay, Nithil, Kaushal
@@ -18,23 +34,44 @@ public class Controller {
 	
 	Model model;
 	View view;
-	
 	private BlockingQueue<Message> messageQueue;
+	
+	
+
+	
 
 	/**
 	 * 
 	 */
-	public Controller() {
+	public Controller(View view,Model model,BlockingQueue<Message> queue) {
 		// TODO Auto-generated constructor stub
-	}
-	
-	/**
-	 * Represents the mainloop of the game.
-	 */
-	public void mainloop()
-	{
+		this.view = view;
+		this.model = model;
+		this.messageQueue = queue;
 		
 	}
+	
+	
+		public void mainLoop() throws Exception{ 
+			
+			ValveResponse response = ValveResponse.EXECUTED; 
+			Message message = null;
+		
+		while(response != ValveResponse.FINISH){
+		 try{
+			 
+	
+		message = (Message) messageQueue.take(); 
+		}
+		
+		 catch(InterruptedException e){
+		  e.printStackTrace();
+		
+		}
+		 
+		}
+		
+		}
 	
 	/**
 	 * Updates each frame of the snake and food, basically the game.

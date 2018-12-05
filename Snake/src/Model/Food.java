@@ -17,12 +17,17 @@ public class Food extends Block {
 	}
 
 	
-	/**
-	 * The following method generates food in a random position
-	 */
-	public void generateFood()
+	public int getMaxX()
 	{
-		
+		return super.getPos().getxPos() + 9;
 	}
+	
+	public int getMaxY()
+	{
+		return super.getPos().getyPos() + 9;
+	}
+	
+	
+	
 	
 }

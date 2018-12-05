@@ -3,6 +3,10 @@
  */
 package View;
 
+import message.Message;
+
+import java.util.concurrent.BlockingQueue;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
@@ -21,8 +25,16 @@ public class View {
 	/**
 	 * 
 	 */
-	public View() {
+	public View(BlockingQueue<Message> queue) {
 		// TODO Auto-generated constructor stub
+		outerFrame = new JFrame();
+		outerFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		outerFrame.setTitle("Snake Game");
+		outerFrame.setLocationRelativeTo(null);
+		outerFrame.setDefaultLookAndFeelDecorated(true);
+		
+		
+		
 	}
 	
 	/**
