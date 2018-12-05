@@ -5,6 +5,7 @@ package Model;
 
 import java.util.ArrayList;
 import java.util.Stack;
+import java.util.concurrent.BlockingQueue;
 
 import Controller.ValveResponse;
 import message.DownButtonMessage;
@@ -16,7 +17,7 @@ import message.RightButtonMessage;
 import message.UpButtonMessage;
 
 
-
+import message.*;
 
 
 
@@ -29,7 +30,7 @@ import message.UpButtonMessage;
  */
 public class Snake implements Valve{
 
-
+	BlockingQueue<Message> queue;
 	int snakeLength;
 	ArrayList<Block> snakeBlock;
 	Position pos;
@@ -40,7 +41,7 @@ public class Snake implements Valve{
 	 * @throws IOException 
 	 * 
 	 */
-	public Snake(Position pos,int snakeLength) {
+	public Snake(Position pos,int snakeLength,BlockingQueue<Message> queue) {
 
 		this.pos = pos;
 		this.snakeLength = snakeLength;
@@ -49,6 +50,7 @@ public class Snake implements Valve{
 		{
 			addBlockToSnake();
 		}
+		this.queue = queue;
 	}
 
 
@@ -69,7 +71,7 @@ public class Snake implements Valve{
 	}
 
 
-	public void addBlock() 
+	public void addBlock() throws InterruptedException 
 	{
 		
 		
@@ -108,7 +110,10 @@ public class Snake implements Valve{
 			p.setxPos(xpos);
 			snakeBlock.add(new Block(p));
 		}
-
+		
+		queue.put(new PositionMessage(getxPositions(),getyPositions()));
+		
+		
 
 	}
 
@@ -116,11 +121,31 @@ public class Snake implements Valve{
 
 
 
+	public ArrayList<Integer> getxPositions()
+	{
+		ArrayList<Integer> positions = new ArrayList<Integer>();
+		
+		for(Block clk : snakeBlock)
+		{
+			positions.add(clk.getPos().getxPos());
+		}
+		
+		return positions;
+	}
 
 
 
-
-
+	public ArrayList<Integer> getyPositions()
+	{
+		ArrayList<Integer> positions = new ArrayList<Integer>();
+		
+		for(Block clk : snakeBlock)
+		{
+			positions.add(clk.getPos().getyPos());
+		}
+		
+		return positions;
+	}
 
 
 
@@ -192,7 +217,7 @@ public class Snake implements Valve{
 		}
 
 
-
+			
 
 	}
 
