@@ -59,18 +59,15 @@ public class Controller {
 			Message message = null;
 		
 		while(response != ValveResponse.FINISH){
-		 try{
-			 
-	
-		message = (Message) messageQueue.take(); 
-		}
 		
-		 catch(InterruptedException e){
-		  e.printStackTrace();
+
+		//message = (Message) messageQueue.take(); 
 		
-		}
+		 
+		 System.out.println(messageQueue.size());
 		 
 		}
+		
 		
 		}
 	

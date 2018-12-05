@@ -37,6 +37,11 @@ public class View {
 		
 		 playPanel = new PlayPanel(queue);
 		
+		 KeyBoardListener listener = new KeyBoardListener(queue);
+		 
+		 playPanel.addKeyListener(listener);
+		 
+		 outerFrame.addKeyListener(listener);
 		
 		outerFrame.add(playPanel);
 		outerFrame.pack();
