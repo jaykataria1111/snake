@@ -1,7 +1,7 @@
 /**
  * 
  */
-package snakepack;
+package Model;
 
 import java.util.Stack;
 

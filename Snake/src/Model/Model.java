@@ -1,7 +1,9 @@
 /**
  * 
  */
-package snakepack;
+package Model;
+
+
 
 /**
  * @author Jay, Nithil, Kaushal
@@ -9,29 +11,16 @@ package snakepack;
  */
 public class Model {
 	
-	Player play;
 	Level level;
 	Statistics stats;
-	Board board;
 	Snake snake;
 	Food food;
 	boolean playStarted;
 	boolean playEnded;
 
-	/**
-	 * @return the play
-	 */
-	public Player getPlay() {
-		return play;
-	}
+	
 
-	/**
-	 * @param play the play to set
-	 */
-	public void setPlay(Player play) {
-		this.play = play;
-	}
-
+	
 	/**
 	 * @return the level
 	 */
@@ -58,20 +47,6 @@ public class Model {
 	 */
 	public void setStats(Statistics stats) {
 		this.stats = stats;
-	}
-
-	/**
-	 * @return the board
-	 */
-	public Board getBoard() {
-		return board;
-	}
-
-	/**
-	 * @param board the board to set
-	 */
-	public void setBoard(Board board) {
-		this.board = board;
 	}
 
 	/**

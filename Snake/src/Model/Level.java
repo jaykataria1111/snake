@@ -1,4 +1,4 @@
-package snakepack;
+package Model;
 
 /**
  * The following class represents a level in the game,

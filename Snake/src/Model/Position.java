@@ -1,7 +1,7 @@
 /**
  * 
  */
-package snakepack;
+package Model;
 
 /**
  * The following class represents a position on the Screen

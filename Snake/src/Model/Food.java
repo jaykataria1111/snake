@@ -1,4 +1,5 @@
-package snakepack;
+package Model;
+
 /**
  * The following class represents food for a snake.
  * @author Jay, Nithil, Kaushal

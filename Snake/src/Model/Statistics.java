@@ -1,7 +1,7 @@
 /**
  * 
  */
-package snakepack;
+package Model;
 
 /**
  * @author Jay, Nithil, Kaushal

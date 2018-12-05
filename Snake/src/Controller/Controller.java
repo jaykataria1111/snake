@@ -1,7 +1,10 @@
 /**
  * 
  */
-package snakepack;
+package Controller;
+
+import Model.Model;
+import View.View;
 
 /**
  * @author Jay, Nithil, Kaushal

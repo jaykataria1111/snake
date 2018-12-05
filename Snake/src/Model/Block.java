@@ -1,7 +1,7 @@
 /**
  * 
  */
-package snakepack;
+package Model;
 
 /**
  * The following class describes a block on the screen.

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package snakepack;
+package View;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
