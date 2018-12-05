@@ -53,8 +53,23 @@ public class Controller {
 		
 		while(response != ValveResponse.FINISH){
 		
-
-		//message = (Message) messageQueue.take(); 
+			try{		
+		message = (Message) messageQueue.take(); 
+			}
+			catch(InterruptedException e){
+				  e.printStackTrace();
+				 }
+		
+		
+		for(Valve valve : valves)
+		{
+			response = valve.execute(message);
+		if(response != ValveResponse.MISS) 
+			break;
+		 
+		}
+		
+		 
 		
 		 
 		 System.out.println(messageQueue.size());
