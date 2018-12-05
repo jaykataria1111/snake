@@ -80,6 +80,7 @@ public class Controller {
 				 }
 		
 		
+
 			for(Valve valve : valves)
 			{
 				
@@ -93,6 +94,17 @@ public class Controller {
 			}
 			 
 			}
+
+		for(Valve valve : valves)
+		{
+			response = valve.execute(message);
+		if(response != ValveResponse.MISS) 
+			break;
+		 
+		}
+		
+		 
+
 		
 		 
 		
