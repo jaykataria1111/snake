@@ -15,7 +15,7 @@ public class Block {
 	
 
 	Position pos;
-	public static final int BLOCKSIZE = 10;
+	public static final int BLOCKSIZE = 10; 
 
 	/**
 	 * @param pos is the position of the Block.

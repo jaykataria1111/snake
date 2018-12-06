@@ -6,6 +6,7 @@ package message;
 import java.util.ArrayList;
 
 /**
+ * THe following message represents a Position on the screen, the message is supposed to get snakes postion.
  * @author jay
  *
  */

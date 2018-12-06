@@ -14,6 +14,10 @@ import message.Message;
  * @author Jay, Nithil, Kaushal
  *The following class is a Model class
  */
+/**
+ * @author jay
+ *
+ */
 public class Model {
 	
 	Level level;
@@ -26,14 +30,14 @@ public class Model {
 	private Random random;
 	
 
-	public Model(BlockingQueue<Message> queue)
+	public Model()
 	{
 		level = new Level(0);
-		snake = new Snake(new Position(110,110),5,queue);
+		snake = new Snake(new Position(110,110),5);
 		stats = new Statistics(0);
 		food = new Food(new Position(100,100));
 		random = new Random();
-		this.queue = queue;
+
 	}
 	
 	/**
@@ -160,6 +164,9 @@ public class Model {
 
 	
 	
+	/**
+	 * Checks if the snake ate the food and if the snake ate the food then makes a new food particle on the screen.
+	 */
 	public void processFood()
 	{
 		if(ateFood())
@@ -171,18 +178,31 @@ public class Model {
 	
 	
 	
+	/**
+	 * Gets the X cordinate of the food position that was generated.
+	 * @return returns the x cordinate of the food position that was generated.
+	 */
 	public Integer getFoodxPosition()
 	{
 		return this.food.getPos().getxPos();
 	}
 	
-	
+	/**
+	 * Gets the Y coordinate of the food position that was generated.
+	 * @return returns the y coordinate of the food position that was generated.
+	 */
 	public Integer getFoodyPosition()
 	{
 		return this.food.getPos().getyPos();
 	}
 	
 	
+	
+	
+	/**
+	 * Checks if the snake ate the food
+	 * @return true if the snake ate the food. 
+	 */
 	public boolean ateFood()
 	{
 		if(snake.getHeadPosition().getxPos() <= food.getPos().getxPos() && snake.getHeadPosition().getyPos() <= food.getPos().getyPos()  && snake.getMaxX() >= food.getMaxX() && snake.getMaxY()>= food.getMaxY())
@@ -211,6 +231,10 @@ public class Model {
 	}
 	
 	
+	/**
+	 * The following method checks whether the game is over.
+	 * @return True if the game is over.
+	 */
 	public boolean gameOver()
 	{
 		ArrayList<Block> snakelist = snake.getSnakeBlock();
@@ -250,6 +274,10 @@ public class Model {
 	
 	
 
+	/**
+	 * The following method generates a random food particle on the screen.
+	 * @return returns a random position of the next food particle generated on the screen.
+	 */
 	private Position getRandomPosition() {
 		
 		int x =random.nextInt(27)*11;

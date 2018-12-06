@@ -30,7 +30,7 @@ import message.*;
  */
 public class Snake {
 
-	BlockingQueue<Message> queue;
+	
 	int snakeLength;
 	ArrayList<Block> snakeBlock;
 	Position pos;
@@ -41,7 +41,7 @@ public class Snake {
 	 * @throws IOException 
 	 * 
 	 */
-	public Snake(Position pos,int snakeLength,BlockingQueue<Message> queue) {
+	public Snake(Position pos,int snakeLength) {
 
 		this.pos = pos;
 		this.snakeLength = snakeLength;
@@ -50,7 +50,7 @@ public class Snake {
 		{
 			addBlockToSnake();
 		}
-		this.queue = queue;
+	
 	}
 
 
@@ -206,7 +206,7 @@ public class Snake {
 
 		
 		
-		queue.put(new PositionMessage(getxPositions(),getyPositions()));
+		
 		//System.out.println("Code working");
 
 	}

@@ -135,7 +135,7 @@ public class Controller {
 		
 		BlockingQueue<Message> queue = new LinkedBlockingQueue<Message>();
 		View gameView = new View(queue);
-		Model mod = new Model(queue);
+		Model mod = new Model();
 		Controller mainGame = new Controller(gameView,mod, queue); 
 		mainGame.mainLoop();
 		
