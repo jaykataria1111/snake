@@ -3,6 +3,7 @@
  */
 package Model;
 
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.concurrent.BlockingQueue;
 
@@ -210,7 +211,35 @@ public class Model {
 	}
 	
 	
-	
+	public boolean gameOver()
+	{
+		ArrayList<Block> snakelist = snake.getSnakeBlock();
+		
+		ArrayList<Position> blockPositions  = new ArrayList<>();
+		
+		for(Block block: snakelist)
+		{
+			if(blockPositions.contains(block.getPos()))
+				return true;
+			
+			blockPositions.add(block.getPos());
+		}
+		
+		
+		
+		if(snake.getHeadPosition().getxPos()<0 || snake.getHeadPosition().getxPos()>286)
+			return true;
+		
+		
+		
+		if(snake.getHeadPosition().getyPos()<0 || snake.getHeadPosition().getyPos()>286 )
+			return true;
+		
+		
+		
+		return false;
+		
+	}
 	
 	
 	

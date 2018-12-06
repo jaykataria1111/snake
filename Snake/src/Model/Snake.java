@@ -172,10 +172,7 @@ public class Snake {
 		{
 			Position p = new Position(snakeBlock.get(0).getPos());
 			p.setxPos(p.getxPos() - Block.BLOCKSIZE - BLOCK_SPACE);
-			if(p.getxPos()<0)
-			{
-				p.setxPos(297-p.getxPos());
-			}
+			
 
 			snakeBlock.get(0).setPos(p);
 
@@ -185,10 +182,7 @@ public class Snake {
 		{
 			Position p = new Position(snakeBlock.get(0).getPos());
 			p.setxPos(p.getxPos()+ Block.BLOCKSIZE + BLOCK_SPACE);
-			if(p.getxPos()>297)
-			{
-				p.setxPos(p.getxPos()-308);
-			}
+			
 			
 			snakeBlock.get(0).setPos(p);
 
@@ -198,10 +192,7 @@ public class Snake {
 		{
 			Position p = new Position(snakeBlock.get(0).getPos());
 			p.setyPos(p.getyPos() - Block.BLOCKSIZE - BLOCK_SPACE);
-			if(p.getyPos()<0)
-			{
-				p.setyPos(297-p.getyPos());
-			}
+			
 			snakeBlock.get(0).setPos(p);
 		}
 
@@ -209,10 +200,7 @@ public class Snake {
 		{
 			Position p = new Position(snakeBlock.get(0).getPos() );
 			p.setyPos(p.getyPos()+ Block.BLOCKSIZE + BLOCK_SPACE);
-			if(p.getyPos()>297)
-			{
-				p.setyPos(p.getyPos()-308);
-			}
+			
 			snakeBlock.get(0).setPos(p);
 		}
 

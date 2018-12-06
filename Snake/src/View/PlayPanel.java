@@ -4,6 +4,7 @@
 package View;
 
 import Model.Valve;
+import message.CheckGameOverMessage;
 import message.DownButtonMessage;
 import message.FoodCheckMessage;
 import message.KeyPressed;
@@ -38,7 +39,7 @@ import Controller.ValveResponse;
 public class PlayPanel extends JPanel  implements ActionListener{
 
 	
-	
+	int counter;
 	Integer foodImagexPosition;
 	Integer foodImageyPosition;
 	
@@ -56,7 +57,7 @@ public class PlayPanel extends JPanel  implements ActionListener{
 	public PlayPanel(BlockingQueue<Message> queue) throws IOException {
 		// TODO Auto-generated constructor stub
 		
-		
+		counter = 0;
 		
 		blockImage = ImageIO.read(new File("//Users//jay//CS 151//Project//snake//Snake//blackBlock.png"));
 		blockImage = blockImage.getScaledInstance(10,10, Image.SCALE_DEFAULT);
@@ -120,7 +121,21 @@ public class PlayPanel extends JPanel  implements ActionListener{
 		// TODO Auto-generated method stub
 		
 		
+		//if(counter < 6)
 		
+		
+		
+		
+		
+		CheckGameOverMessage checkGameOver = new CheckGameOverMessage();
+
+		
+		try {
+			queue.put(checkGameOver);
+		} catch (InterruptedException e3) {
+			// TODO Auto-generated catch block
+			e3.printStackTrace();
+		}
 		
 		
 		

@@ -54,6 +54,43 @@ public class Position implements Valve{
 	public void setyPos(int yPos) {
 		this.yPos = yPos;
 	}
+	
+	
+	
+	
+	
+	
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + xPos;
+		result = prime * result + yPos;
+		return result;
+	}
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Position other = (Position) obj;
+		if (xPos != other.xPos)
+			return false;
+		if (yPos != other.yPos)
+			return false;
+		return true;
+	}
+	
+	
 	@Override
 	public ValveResponse execute(Message message) {
 		// TODO Auto-generated method stub

@@ -10,6 +10,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 
 import Model.Model;
 import View.View;
+import message.CheckGameOverMessage;
 import message.DownButtonMessage;
 import message.FoodCheckMessage;
 import message.LeftButtonMessage;
@@ -61,6 +62,7 @@ public class Controller {
 			valves2.add(new UpButtonValve());
 			valves2.add(new FoodCheckValve());
 			valves2.add(new MoveSnakeValve());
+			valves2.add(new CheckGameOverValve());
 			
 	}
 
@@ -263,6 +265,24 @@ public class Controller {
 			model.processFood();
 			view.getPlayPanel().setFoodImagexPosition(model.getFoodxPosition());
 			view.getPlayPanel().setFoodImageyPosition(model.getFoodyPosition());
+			
+			return ValveResponse.EXECUTED;
+		}
+		
+	}
+	
+	
+	private class CheckGameOverValve implements Valve{
+
+		@Override
+		public ValveResponse execute(Message message) {
+			// TODO Auto-generated method stub
+			if(!(message instanceof CheckGameOverMessage))
+				return ValveResponse.MISS;
+			
+			if(model.gameOver())
+			return ValveResponse.FINISH;
+			
 			
 			return ValveResponse.EXECUTED;
 		}
