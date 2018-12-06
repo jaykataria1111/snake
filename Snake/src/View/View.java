@@ -28,7 +28,7 @@ public class View {
 
 	/**
 	 * @throws IOException 
-	 * 
+	 * The following method is the main view which takes a blocking queue and implements actions based upon it.
 	 */
 	public View(BlockingQueue<Message> queue) throws IOException {
 		// TODO Auto-generated constructor stub

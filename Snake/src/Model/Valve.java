@@ -8,7 +8,7 @@ import Controller.ValveResponse;
 import message.Message;
 /**
  * @author jay
- *
+ *The following valves help one to perform certain events.
  */
 public interface Valve {
 

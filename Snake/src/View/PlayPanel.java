@@ -52,7 +52,7 @@ public class PlayPanel extends JPanel  implements ActionListener{
 	Image foodImage;
 	/**
 	 * @throws IOException 
-	 * 
+	 * Default constructor which takes the blocking queue.
 	 */
 	public PlayPanel(BlockingQueue<Message> queue) throws IOException {
 		// TODO Auto-generated constructor stub
@@ -216,6 +216,11 @@ public class PlayPanel extends JPanel  implements ActionListener{
 	
 
 
+	/**
+	 * Updates the postion of the snake based on the arraylis i.e.
+	 * @param getxPositions
+	 * @param getyPositions
+	 */
 	public void updatePositions(ArrayList<Integer> getxPositions, ArrayList<Integer> getyPositions) {
 		// TODO Auto-generated method stub
 		
@@ -224,6 +229,9 @@ public class PlayPanel extends JPanel  implements ActionListener{
 	}
 
 
+	/**
+	 * Sets the left key so that the snake can go in the left direction.
+	 */
 	public void setLeftKey() {
 		// TODO Auto-generated method stub
 		
@@ -234,7 +242,9 @@ public class PlayPanel extends JPanel  implements ActionListener{
 			
 	}
 	
-	
+	/**
+	 * Sets the right key so that the snake can go in the right direction.
+	 */
 	public void setRightKey() {
 		
 		if(key != KeyPressed.LEFT)
@@ -242,7 +252,9 @@ public class PlayPanel extends JPanel  implements ActionListener{
 		
 	}
 	
-	
+	/**
+	 * Sets the down key so that the snake can go in the down direction.
+	 */
 	public void setDownKey() {
 		
 		if(key != KeyPressed.UP)
@@ -251,7 +263,9 @@ public class PlayPanel extends JPanel  implements ActionListener{
 	}
 
 	
-
+	/**
+	 * Sets the up key so that the snake can go in the up direction.
+	 */
 	public void setUpKey() {
 		
 		if(key != KeyPressed.DOWN)

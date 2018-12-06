@@ -54,6 +54,9 @@ public class Snake {
 	}
 
 
+	/**
+	 * Adds a new block to the snake.
+	 */
 	public void addBlockToSnake() 
 	{
 		if(snakeBlock.isEmpty())
@@ -71,6 +74,9 @@ public class Snake {
 	}
 
 
+	/**
+	 * helps the main add block method.
+	 */
 	public void addBlock()  
 	{
 		
@@ -120,7 +126,11 @@ public class Snake {
 
 
 
-
+	
+	/**
+	 * Gets all the xPositions in the Snake Class
+	 * @return returns all the x Positions.
+	 */
 	public ArrayList<Integer> getxPositions()
 	{
 		ArrayList<Integer> positions = new ArrayList<Integer>();
@@ -134,7 +144,10 @@ public class Snake {
 	}
 
 
-
+	/**
+	 * Gets all the yPositions in the Snake Class
+	 * @return returns all the y Positions.
+	 */
 	public ArrayList<Integer> getyPositions()
 	{
 		ArrayList<Integer> positions = new ArrayList<Integer>();
@@ -149,8 +162,10 @@ public class Snake {
 
 
 
-
-	public void moveSnake(KeyPressed key) throws InterruptedException
+	/**
+	 * moves the snake according to the enum
+	 */
+	public void moveSnake(KeyPressed key) 
 	{
 
 		Position current;
@@ -212,12 +227,19 @@ public class Snake {
 	}
 
 	
+	/**
+	 * Gets the Position of the head of the snake.
+	 * @return the position of the head of the snake.
+	 */
 	public Position getHeadPosition()
 	{
 		return snakeBlock.get(0).getPos();
 	}
 	
-	
+	/**
+	 * Gets how much maximum a block can go!
+	 * @return the maximum amount that the block can go.
+	 */
 	public int getMaxX()
 	{
 		return  snakeBlock.get(0).getPos().getxPos()+ Block.BLOCKSIZE;
