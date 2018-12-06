@@ -1,7 +1,7 @@
 /**
  * 
  */
-package Model;
+package model;
 
 import Controller.ValveResponse;
 import message.Message;

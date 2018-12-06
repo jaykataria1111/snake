@@ -1,4 +1,4 @@
-package Model;
+package model;
 
 /**
  * The following class represents food for a snake.

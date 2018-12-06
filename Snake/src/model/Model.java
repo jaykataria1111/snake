@@ -1,7 +1,7 @@
 /**
  * 
  */
-package Model;
+package model;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -126,12 +126,7 @@ public class Model {
 		this.playEnded = playEnded;
 	}
 
-	/**
-	 * 
-	 */
-	public Model() {
-		// TODO Auto-generated constructor stub
-	}
+	
 	
 	
 	

@@ -8,7 +8,6 @@ import java.util.LinkedList;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
-import Model.Model;
 import View.View;
 import message.CheckGameOverMessage;
 import message.DownButtonMessage;
@@ -18,9 +17,9 @@ import message.Message;
 import message.MoveSnakeMessage;
 import message.RightButtonMessage;
 import message.UpButtonMessage;
+import model.Model;
+import model.Valve;
 import Controller.*;
-
-import Model.Valve;
 
 /**
  * @author Jay, Nithil, Kaushal
@@ -261,12 +260,7 @@ public class Controller {
 			
 			MoveSnakeMessage msg = (MoveSnakeMessage) message;
 			
-			try {
-				model.getSnake().moveSnake(msg.getKey());
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			model.getSnake().moveSnake(msg.getKey());
 			
 			view.getPlayPanel().updatePositions(model.getSnake().getxPositions(),model.getSnake().getyPositions());
 			

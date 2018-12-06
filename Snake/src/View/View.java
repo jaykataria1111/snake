@@ -4,8 +4,8 @@
 package View;
 
 
-import Model.Valve;
 import message.Message;
+import model.Valve;
 
 import java.io.IOException;
 import java.util.concurrent.BlockingQueue;

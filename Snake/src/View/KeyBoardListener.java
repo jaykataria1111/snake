@@ -3,8 +3,9 @@
  */
 package View;
 
-import Model.Valve;
 import message.*;
+import model.Valve;
+
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.concurrent.BlockingQueue;

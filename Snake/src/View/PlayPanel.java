@@ -3,7 +3,6 @@
  */
 package View;
 
-import Model.Valve;
 import message.CheckGameOverMessage;
 import message.DownButtonMessage;
 import message.FoodCheckMessage;
@@ -14,6 +13,7 @@ import message.MoveSnakeMessage;
 import message.PositionMessage;
 import message.RightButtonMessage;
 import message.UpButtonMessage;
+import model.Valve;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
