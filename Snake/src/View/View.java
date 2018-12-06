@@ -53,31 +53,7 @@ public class View {
 		
 	}
 	
-	/**
-	 * Switches the GUI to playMode
-	 */
-	public void playMode()
-	{
-		
-	}
 	
-	/**
-	 * Switches the GUI to highScoreMode()
-	 */
-	public void highScoreMode()
-	{
-		
-	}
-	
-	
-	/**
-	 * Switches the GUI to levelMode
-	 */
-	public void levelMode()
-	{
-		
-	}
-
 	/**
 	 * @return the playPanel
 	 */
