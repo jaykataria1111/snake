@@ -4,6 +4,7 @@
 package message;
 
 /**
+ * The following message represents whether the gmae is over. 
  * @author jay
  *
  */

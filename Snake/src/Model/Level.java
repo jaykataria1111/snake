@@ -8,7 +8,7 @@ import message.Message;
  * @author Jay, Nithil, Kaushal
  *
  */
-public class Level implements Valve{
+public class Level {
 
 	public static final int LEVEL1 = 1;
 	public static final int LEVEL2 = 2;
@@ -39,11 +39,7 @@ public class Level implements Valve{
 		this.currentLevel = currentLevel;
 	}
 
-	@Override
-	public ValveResponse execute(Message message) {
-		// TODO Auto-generated method stub
-		return ValveResponse.MISS;
-	}
+	
 	
 	
 

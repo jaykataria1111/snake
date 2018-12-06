@@ -27,6 +27,11 @@ import Model.Valve;
  * THe following class is the controller class which controls the flow of the program.
  *
  */
+
+/**
+ * @author jay
+ *
+ */
 public class Controller {
 	
 	
@@ -39,8 +44,12 @@ public class Controller {
 
 	
 
+	
 	/**
-	 * 
+	 * The default constructor where the normal a
+	 * @param view is the view class
+	 * @param model is the model class 
+	 * @param queue is the static data structure with messages
 	 */
 	public Controller(View view,Model model,BlockingQueue<Message> queue) {
 		// TODO Auto-generated constructor stub
@@ -53,6 +62,12 @@ public class Controller {
 	}
 	
 	
+	
+	
+		/**
+		 * Adds all the available valves to the linked list of valves
+		 * @param valves2 is the linked list in which one would wan to insert the valves.
+		 */
 		private void addValves(LinkedList<Valve> valves2) {
 		// TODO Auto-generated method stub
 		
@@ -67,6 +82,10 @@ public class Controller {
 	}
 
 
+		/**
+		 * Is the main loop of the game this is the point where the game decides whether everything is working, i.e. communication center of the game.
+		 * @throws Exception
+		 */
 		public void mainLoop() throws Exception{ 
 			
 			ValveResponse response = ValveResponse.EXECUTED; 
@@ -106,31 +125,11 @@ public class Controller {
 		
 		}
 	
-	/**
-	 * Updates each frame of the snake and food, basically the game.
-	 */
-	public void updateFrame()
-	{}
-	
-	/**
-	 * Starts the game.
-	 */
-	public void startGame()
-	{
-		
-	}
-	
-	
-	/**
-	 * Gets the input of the Game.
-	 */
-	public void getInput()
-	{
-		
-	}
 	
 	
 	
+	
+
 	public static void main(String[] args) throws Exception
 	{
 		
@@ -145,6 +144,11 @@ public class Controller {
 	}
 	
 	
+	/**
+	 * The following class implements a leftButton valve i.e. when a left button is pressed the following valve acts accordingly.
+	 * @author jay
+	 *
+	 */
 	private class LeftButtonValve implements Valve{
 
 		@Override
@@ -165,7 +169,11 @@ public class Controller {
 	}
 	
 	
-	
+	/**
+	 * The following class implements a right Button valve i.e. when a right button is pressed the following valve acts accordingly.
+	 * @author jay
+	 *
+	 */
 	private class RightButtonValve implements Valve{
 
 		@Override
@@ -186,7 +194,11 @@ public class Controller {
 	}
 	
 	
-	
+	/**
+	 * The following class implements a Up Button valve i.e. when UP button is pressed the following valve acts accordingly.
+	 * @author jay
+	 *
+	 */
 	private class UpButtonValve implements Valve{
 
 		@Override
@@ -207,7 +219,11 @@ public class Controller {
 	}
 	
 	
-	
+	/**
+	 * The following class implements a Down Button valve i.e. when Down button is pressed the following valve acts accordingly.
+	 * @author jay
+	 *
+	 */
 	private class DownButtonValve implements Valve{
 
 		@Override
@@ -227,6 +243,14 @@ public class Controller {
 		
 	}
 	
+	
+	
+	
+	/**
+	 * Moves a snake when a the message is called.
+	 * @author jay
+	 *
+	 */
 	private class MoveSnakeValve implements Valve{
 
 		@Override
@@ -254,6 +278,12 @@ public class Controller {
 	}
 	
 	
+	/**
+	 * Checks if the snake has eaten the food when the valve is called.
+	 * @author jay
+	 *
+	 */
+	
 	private class FoodCheckValve implements Valve{
 
 		@Override
@@ -272,6 +302,12 @@ public class Controller {
 	}
 	
 	
+	
+	/**
+	 * Checks if the Game is over.
+	 * @author jay
+	 *
+	 */
 	private class CheckGameOverValve implements Valve{
 
 		@Override

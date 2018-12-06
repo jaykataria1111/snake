@@ -11,7 +11,7 @@ import message.Message;
  * @author Jay, Nithil, Kaushal
  *
  */
-public class Block implements Valve{
+public class Block {
 	
 
 	Position pos;
@@ -50,11 +50,7 @@ public class Block implements Valve{
 
 
 
-	@Override
-	public ValveResponse execute(Message message) {
-		// TODO Auto-generated method stub
-		return ValveResponse.MISS;
-	}
+	
 	
 	
 	

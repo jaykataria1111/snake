@@ -11,7 +11,7 @@ import message.Message;
  * The following class keeps the statistics of game.
  *
  */
-public class Statistics implements Valve{
+public class Statistics {
 
 	private int currentScore;
 	public static int[] HighScore = new int[5];
@@ -55,10 +55,6 @@ public class Statistics implements Valve{
 		HighScore = highScore;
 	}
 
-	@Override
-	public ValveResponse execute(Message message) {
-		// TODO Auto-generated method stub
-		return ValveResponse.MISS;
-	}
+	
 
 }

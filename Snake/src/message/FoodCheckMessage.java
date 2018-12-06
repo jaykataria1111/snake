@@ -4,6 +4,7 @@
 package message;
 
 /**
+ * The following message checks is to inform the controller to check whether the snake ate the food.
  * @author jay
  *
  */
