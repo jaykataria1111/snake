@@ -68,7 +68,7 @@ public class PlayPanel extends JPanel  implements ActionListener{
 		
 		
 		this.setBackground(new java.awt.Color(153, 204, 153));
-		this.setPreferredSize(new Dimension(300,300));	
+		this.setPreferredSize(new Dimension(297,297));	
 		this.setVisible(true);
 		timer = new Timer(150,this);
 		timer.start();

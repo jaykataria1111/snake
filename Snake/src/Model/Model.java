@@ -28,7 +28,7 @@ public class Model {
 	public Model(BlockingQueue<Message> queue)
 	{
 		level = new Level(0);
-		snake = new Snake(new Position(100,100),5,queue);
+		snake = new Snake(new Position(110,110),5,queue);
 		stats = new Statistics(0);
 		food = new Food(new Position(100,100));
 		random = new Random();
