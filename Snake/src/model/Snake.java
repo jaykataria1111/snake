@@ -219,10 +219,6 @@ public class Snake {
 			snakeBlock.get(0).setPos(p);
 		}
 
-		
-		
-		
-		//System.out.println("Code working");
 
 	}
 
