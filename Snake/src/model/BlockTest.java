@@ -11,12 +11,12 @@ class BlockTest {
 	
 	@Test
 	void testgetPos(){
-		assertEquals(pos, testBlock.pos);
+		assertEquals(pos, testBlock.getPos());
 	}
 	@Test
 	void testsetPos(){
 		Position pos  = new Position(26, 36);
 		testBlock.setPos(pos);
-		assertEquals(pos, testBlock.pos);
+		assertEquals(pos, testBlock.getPos());
 	}
 }
