@@ -5,7 +5,7 @@ package message;
 
 /**
  * The following class represents up button which is pressed the up button
- * @author jay
+ * @author jay, nithil, kaushal
  *
  */
 public class UpButtonMessage extends Message {

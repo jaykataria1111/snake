@@ -5,7 +5,7 @@ package message;
 
 /**
  * THe following message is used to inform the controller that the down button has been pressed.
- * @author jay
+ * @author jay, nithil, kaushal
  *
  */
 public class DownButtonMessage extends Message {

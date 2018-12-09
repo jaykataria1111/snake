@@ -6,7 +6,7 @@ package message;
 import model.*;
 /**
  * The following class represents a message that moves  a snake on the screen, it gets an enum named keyPressed which is called upon from the screen.
- * @author jay
+ * @author jay, nithil, kaushal
  *
  */
 public class MoveSnakeMessage extends Message {

@@ -5,7 +5,7 @@ package message;
 
 /**
  * THe follwoing message represents that the left button was pressed. 
- * @author jay
+ * @author jay, nithil, kaushal
  *
  */
 public class LeftButtonMessage extends Message {

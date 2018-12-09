@@ -4,8 +4,8 @@
 package message;
 
 /**
- * The following message represents whether the gmae is over. 
- * @author jay
+ * The following message represents whether the game is over. 
+ * @author jay, nithil, kaushal
  *
  */
 public class CheckGameOverMessage extends Message {
