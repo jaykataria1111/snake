@@ -39,7 +39,9 @@ public class Snake {
     
 	/**
 	 * @throws IOException 
-	 * 
+	 * Default counstructor for snake.
+	 * @param pos is the snakes starting position
+	 * @param snakeLength is the length of the snake.
 	 */
 	public Snake(Position pos,int snakeLength) {
 

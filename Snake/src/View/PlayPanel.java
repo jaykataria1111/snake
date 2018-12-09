@@ -4,6 +4,7 @@
 package View;
 
 import message.CheckGameOverMessage;
+import message.CheckIfWonMessage;
 import message.DownButtonMessage;
 import message.FoodCheckMessage;
 import message.KeyPressed;
@@ -50,6 +51,15 @@ public class PlayPanel extends JPanel  implements ActionListener{
 	KeyPressed key;
 	Image blockImage;
 	Image foodImage;
+	Image threeImage;
+	Image twoImage;
+	Image oneImage;
+	Image gameOverImage;
+	boolean gameOver;
+	Image youWinImage;
+	boolean youWin;
+	
+	
 	/**
 	 * @throws IOException 
 	 * Default constructor which takes the blocking queue.
@@ -58,6 +68,8 @@ public class PlayPanel extends JPanel  implements ActionListener{
 		// TODO Auto-generated constructor stub
 		
 		counter = 0;
+		gameOver = false;
+		youWin = false;
 		
 		blockImage = ImageIO.read(new File("//Users//jay//CS 151//Project//snake//Snake//blackBlock.png"));
 		blockImage = blockImage.getScaledInstance(10,10, Image.SCALE_DEFAULT);
@@ -65,7 +77,22 @@ public class PlayPanel extends JPanel  implements ActionListener{
 		foodImage = ImageIO.read(new File("//Users//jay//CS 151//Project//snake//Snake//Food.png"));
 		foodImage = foodImage.getScaledInstance(9,9, Image.SCALE_DEFAULT);
 		
+		threeImage =  ImageIO.read(new File("//Users//jay//CS 151//Project//snake//Snake//3.jpg"));
+		threeImage = threeImage.getScaledInstance(297,297, Image.SCALE_DEFAULT);	
 		
+		
+		twoImage =  ImageIO.read(new File("//Users//jay//CS 151//Project//snake//Snake//2.jpg"));
+		twoImage = 	twoImage.getScaledInstance(297,297, Image.SCALE_DEFAULT);
+		
+		oneImage =  ImageIO.read(new File("//Users//jay//CS 151//Project//snake//Snake//1.jpg"));
+		oneImage = 	oneImage.getScaledInstance(297,297, Image.SCALE_DEFAULT);
+		
+		
+		gameOverImage = ImageIO.read(new File("//Users//jay//CS 151//Project//snake//Snake//Game_Over.jpg"));
+		gameOverImage = gameOverImage.getScaledInstance(297,297, Image.SCALE_DEFAULT);
+		
+		youWinImage = ImageIO.read(new File("//Users//jay//CS 151//Project//snake//Snake//youWin.jpeg"));
+		youWinImage = youWinImage.getScaledInstance(297,297, Image.SCALE_DEFAULT);
 		
 		
 		this.setBackground(new java.awt.Color(153, 204, 153));
@@ -121,12 +148,32 @@ public class PlayPanel extends JPanel  implements ActionListener{
 		// TODO Auto-generated method stub
 		
 		
-		//if(counter < 6)
+		if(counter < 6)
+		{	
+			counter++;
+		}
+		else if(counter >6 && counter < 13)
+		{
+			counter++;
+		}
+		else if( counter > 13 && counter < 20)
+        {
+			counter++;
+        }
+		else
+		{
 		
+		CheckIfWonMessage ifWon = new CheckIfWonMessage();
 		
-		
-		
-		
+		try {
+			queue.put(ifWon);
+		} catch (InterruptedException e4) {
+			// TODO Auto-generated catch block
+			e4.printStackTrace();
+		}
+			
+			
+			
 		CheckGameOverMessage checkGameOver = new CheckGameOverMessage();
 
 		
@@ -158,8 +205,12 @@ public class PlayPanel extends JPanel  implements ActionListener{
 		}
 		
 		
-	    
+	    counter++;
 	    repaint();
+		}
+		
+		
+		
 	}
 	
 	
@@ -167,11 +218,31 @@ public class PlayPanel extends JPanel  implements ActionListener{
 	
 	
 	
+	/* (non-Javadoc)
+	 * @see javax.swing.JComponent#paintComponent(java.awt.Graphics)
+	 */
 	@Override
 	public void paintComponent(Graphics g) {
         super.paintComponent(g);
      
-  
+        if(!gameOver && ! youWin)
+		{
+        if(counter < 6)
+        {
+        	g.drawImage(threeImage, 0, 0, this);
+        	
+        }
+        else if(counter >6 && counter < 13)
+        {
+        	g.drawImage(twoImage, 0, 0, this);
+        }
+        else if( counter > 13 && counter < 20)
+        {
+        	g.drawImage(oneImage, 0, 0, this);
+        }
+        
+        else
+        {
         g.drawImage(foodImage, this.foodImagexPosition, this.foodImageyPosition, this);
         
         for(int i =0; i< xPositions.size() ; i++)
@@ -180,10 +251,54 @@ public class PlayPanel extends JPanel  implements ActionListener{
         }
         
         
-        
-        
+        }
+		}
+        else if(gameOver == true)
+        {
+        	g.drawImage(gameOverImage, 0, 0, this);
+        }
+        else 
+        {
+        	g.drawImage(youWinImage, 0, 0, this);
+        }
         
     }
+
+	
+	
+	
+	
+	/**
+	 * @return the youWin
+	 */
+	public boolean isYouWin() {
+		return youWin;
+	}
+
+
+	/**
+	 * @param youWin the youWin to set
+	 */
+	public void setYouWin(boolean youWin) {
+		this.youWin = youWin;
+	}
+
+
+	/**
+	 * @return the gameOver
+	 */
+	public boolean isGameOver() {
+		return gameOver;
+	}
+
+
+	/**
+	 * @param gameOver the gameOver to set
+	 */
+	public void setGameOver(boolean gameOver) {
+		this.gameOver = gameOver;
+	}
+
 
 	/**
 	 * @param layout
@@ -235,7 +350,7 @@ public class PlayPanel extends JPanel  implements ActionListener{
 	public void setLeftKey() {
 		// TODO Auto-generated method stub
 		
-		if(key != KeyPressed.RIGHT)
+		if(key != KeyPressed.RIGHT  && counter > 20)
 			key = KeyPressed.LEFT;
 		
     	//System.out.println("Pressed");
@@ -247,7 +362,7 @@ public class PlayPanel extends JPanel  implements ActionListener{
 	 */
 	public void setRightKey() {
 		
-		if(key != KeyPressed.LEFT)
+		if(key != KeyPressed.LEFT && counter > 20)
 			key = KeyPressed.RIGHT;
 		
 	}
@@ -257,7 +372,7 @@ public class PlayPanel extends JPanel  implements ActionListener{
 	 */
 	public void setDownKey() {
 		
-		if(key != KeyPressed.UP)
+		if(key != KeyPressed.UP && counter > 20) 
 			key = KeyPressed.DOWN;
 		
 	}
@@ -268,7 +383,7 @@ public class PlayPanel extends JPanel  implements ActionListener{
 	 */
 	public void setUpKey() {
 		
-		if(key != KeyPressed.DOWN)
+		if(key != KeyPressed.DOWN && counter > 20)
 			key = KeyPressed.UP;
 		
 	}

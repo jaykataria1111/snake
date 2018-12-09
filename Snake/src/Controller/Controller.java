@@ -10,6 +10,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 
 import View.View;
 import message.CheckGameOverMessage;
+import message.CheckIfWonMessage;
 import message.DownButtonMessage;
 import message.FoodCheckMessage;
 import message.LeftButtonMessage;
@@ -77,6 +78,9 @@ public class Controller {
 			valves2.add(new FoodCheckValve());
 			valves2.add(new MoveSnakeValve());
 			valves2.add(new CheckGameOverValve());
+			valves2.add(new CheckIfWonValve());
+			
+			
 			
 	}
 
@@ -311,15 +315,40 @@ public class Controller {
 				return ValveResponse.MISS;
 			
 			if(model.gameOver())
+			{
+				view.getPlayPanel().setGameOver(true);
 			return ValveResponse.FINISH;
+			}
 			
 			
 			return ValveResponse.EXECUTED;
 		}
 		
+		
 	}
 	
 	
+	
+	private class CheckIfWonValve implements Valve{
+
+		@Override
+		public ValveResponse execute(Message message) {
+			
+			if(!(message instanceof CheckIfWonMessage))
+				return ValveResponse.MISS;
+			
+			
+			if(model.ifWon())
+			{
+				view.getPlayPanel().setYouWin(true);
+				return ValveResponse.FINISH;
+			}
+			
+			return ValveResponse.EXECUTED;
+		}
+		
+		
+	}
 	
 	
 	

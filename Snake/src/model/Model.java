@@ -20,6 +20,7 @@ import message.Message;
  */
 public class Model {
 	
+	public static final int winningSize = 12;
 	Snake snake;
 	Food food;
 	boolean playStarted;
@@ -95,26 +96,14 @@ public class Model {
 	}
 
 	
-	
-	
-	
-	/**
-	 * Represents that the play started.
-	 */
-	public void playStarted()
+	public boolean ifWon()
 	{
+		if(snake.getSnakeBlock().size()  ==  winningSize)
+			return true;
 		
+		return false;
 	}
 	
-	
-	/**
-	 * Represents the playended
-	 */
-	public void playEnded()
-	{
-	
-	}
-
 	
 	
 	/**
