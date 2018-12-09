@@ -20,8 +20,6 @@ import message.Message;
  */
 public class Model {
 	
-	Level level;
-	Statistics stats;
 	Snake snake;
 	Food food;
 	boolean playStarted;
@@ -32,42 +30,12 @@ public class Model {
 
 	public Model()
 	{
-		level = new Level(0);
 		snake = new Snake(new Position(110,110),5);
-		stats = new Statistics(0);
 		food = new Food(new Position(100,100));
 		random = new Random();
 
 	}
 	
-	/**
-	 * @return the level
-	 */
-	public Level getLevel() {
-		return level;
-	}
-
-	/**
-	 * @param level the level to set
-	 */
-	public void setLevel(Level level) {
-		this.level = level;
-	}
-
-	/**
-	 * @return the stats
-	 */
-	public Statistics getStats() {
-		return stats;
-	}
-
-	/**
-	 * @param stats the stats to set
-	 */
-	public void setStats(Statistics stats) {
-		this.stats = stats;
-	}
-
 	/**
 	 * @return the snake
 	 */
@@ -146,16 +114,6 @@ public class Model {
 	{
 	
 	}
-	
-	
-	/**
-	 * Updates the static high scores if there are any.
-	 */
-	public void addHighScore(Statistics stat)
-	{
-		
-	}
-	
 
 	
 	
