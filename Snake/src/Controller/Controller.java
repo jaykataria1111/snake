@@ -133,18 +133,7 @@ public class Controller {
 	
 	
 
-	public static void main(String[] args) throws Exception
-	{
-		
-		BlockingQueue<Message> queue = new LinkedBlockingQueue<Message>();
-		View gameView = new View(queue);
-		Model mod = new Model();
-		Controller mainGame = new Controller(gameView,mod, queue); 
-		mainGame.mainLoop();
-		
-		
-		
-	}
+	
 	
 	
 	/**
@@ -328,7 +317,11 @@ public class Controller {
 	}
 	
 	
-	
+	/**
+	 * Checks if the player won the game.
+	 * @author jay
+	 *
+	 */
 	private class CheckIfWonValve implements Valve{
 
 		@Override
