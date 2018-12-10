@@ -165,7 +165,7 @@ public class Snake {
 
 
 	/**
-	 * moves the snake according to the enum
+	 * moves the snake according to the enum by 1 step.
 	 */
 	public void moveSnake(KeyPressed key) 
 	{
@@ -251,20 +251,10 @@ public class Snake {
 
 
 
-	/**
-	 * @return the snakeLength
-	 */
-	public int getSnakeLength() {
-		return snakeLength;
-	}
+	
 
 
-	/**
-	 * @param snakeLength the snakeLength to set
-	 */
-	public void setSnakeLength(int snakeLength) {
-		this.snakeLength = snakeLength;
-	}
+	
 
 
 	/**
@@ -291,13 +281,7 @@ public class Snake {
 	}
 
 
-	/**
-	 * @param pos the pos to set
-	 */
-	public void setPos(Position pos) {
-		this.pos = pos;
-	}
-
+	
 
 	
 

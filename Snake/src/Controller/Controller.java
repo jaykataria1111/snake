@@ -328,7 +328,11 @@ public class Controller {
 	}
 	
 	
-	
+	/**
+	 * Checks if the player won the game.
+	 * @author jay
+	 *
+	 */
 	private class CheckIfWonValve implements Valve{
 
 		@Override
