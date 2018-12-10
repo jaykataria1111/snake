@@ -12,11 +12,8 @@ import message.Message;
  *
  */
 public class Block {
-	
-
 	Position pos;
 	public static final int BLOCKSIZE = 10; 
-
 	/**
 	 * @param pos is the position of the Block.
 	 */
@@ -24,36 +21,17 @@ public class Block {
 
 		this.pos = pos;
 	}
-
-
-
 	/**
 	 * @return the pos i.e. position of the block
 	 */
 	public Position getPos() {
 		return pos;
 	}
-
 	/**
 	 * @param pos the position to set the block on.
 	 */
 	public void setPos(Position pos) {
 		this.pos = pos;
 	}
-	
-	
-	
-	
-	
-
-
-
-
-
-	
-	
-	
-	
-
 
 }

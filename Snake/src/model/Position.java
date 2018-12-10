@@ -12,8 +12,6 @@ import message.Message;
  *
  */
 public class Position {
-
-	
 	private int xPos;
 	private int yPos;
 	/**
@@ -54,12 +52,6 @@ public class Position {
 	public void setyPos(int yPos) {
 		this.yPos = yPos;
 	}
-	
-	
-	
-	
-	
-	
 	/* (non-Javadoc)
 	 * @see java.lang.Object#hashCode()
 	 */
@@ -89,9 +81,4 @@ public class Position {
 			return false;
 		return true;
 	}
-	
-	
-	
-	
-
 }

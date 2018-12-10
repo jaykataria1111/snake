@@ -12,16 +12,12 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import message.KeyPressed;
-
 /**
- * @author jay
  * The following class tests a snake. 
  */
 class SnakeTest {
 
 	Snake snake = new Snake(new Position(100,100) , 5);
-	
-
 	/**
 	 * @throws java.lang.Exception
 	 */

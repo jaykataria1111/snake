@@ -11,12 +11,7 @@ import org.junit.jupiter.api.Test;
  *
  */
 class PositionTest {
-
-	
 	Position testPosition  = new Position(23,32);	
-	
-	
-	
 	/**
 	 * Test method for {@link model.Position#testGetxPos()}.
 	 */
@@ -47,5 +42,4 @@ class PositionTest {
 		testPosition.setyPos(40);
 		assertEquals(40, testPosition.getyPos());
 	}
-
 }

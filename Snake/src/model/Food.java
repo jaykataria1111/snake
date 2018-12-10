@@ -6,9 +6,6 @@ package model;
  *
  */
 public class Food extends Block  {
-
-	
-	
 	public static final int FOOD_SIZE = 9;
 	/**
 	 * The following is where the foods position is on screen
@@ -16,10 +13,8 @@ public class Food extends Block  {
 	 */
 	public Food(Position pos) {
 		super(pos);
-		
-	}
 
-	
+	}
 	/**
 	 * Represents how maximum can the food size go in x direction.
 	 * @return returns the max food size
@@ -28,8 +23,6 @@ public class Food extends Block  {
 	{
 		return super.getPos().getxPos() + FOOD_SIZE;
 	}
-	
-	
 	/**
 	 * Represents how maximum can the food size go in x direction.
 	 * @return returns the max food size
@@ -37,9 +30,5 @@ public class Food extends Block  {
 	public int getMaxY()
 	{
 		return super.getPos().getyPos() + FOOD_SIZE;
-	}
-	
-	
-	
-	
+	}	
 }
