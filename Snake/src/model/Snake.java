@@ -24,7 +24,7 @@ import message.*;
 
 
 /**
- * THe following class represents the snake on the screen.
+ * The following class represents the snake on the screen.
  * @author Jay, Nithil, Kaushal
  *
  */

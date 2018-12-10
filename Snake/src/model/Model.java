@@ -20,7 +20,7 @@ import message.Message;
  */
 public class Model {
 	
-	public static final int winningSize = 12;
+	public static final int winningSize = 40;
 	Snake snake;
 	Food food;
 	boolean playStarted;

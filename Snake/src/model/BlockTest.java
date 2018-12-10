@@ -4,7 +4,11 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.*;
 
 import org.junit.jupiter.api.Test;
-
+/**
+ * The following class tests a block on the screen.
+ * @author Jay, Nithil, Kaushal
+ *
+ */
 class BlockTest {
 	Position pos  = new Position(23,32);
 	Block testBlock = new Block(pos);

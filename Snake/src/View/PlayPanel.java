@@ -11,7 +11,6 @@ import message.KeyPressed;
 import message.LeftButtonMessage;
 import message.Message;
 import message.MoveSnakeMessage;
-import message.PositionMessage;
 import message.RightButtonMessage;
 import message.UpButtonMessage;
 import model.Valve;
@@ -71,27 +70,27 @@ public class PlayPanel extends JPanel  implements ActionListener{
 		gameOver = false;
 		youWin = false;
 		
-		blockImage = ImageIO.read(new File("//Users//jay//CS 151//Project//snake//Snake//blackBlock.png"));
+		blockImage = ImageIO.read(new File("././blackBlock.png"));
 		blockImage = blockImage.getScaledInstance(10,10, Image.SCALE_DEFAULT);
 		
-		foodImage = ImageIO.read(new File("//Users//jay//CS 151//Project//snake//Snake//Food.png"));
+		foodImage = ImageIO.read(new File("././Food.png"));
 		foodImage = foodImage.getScaledInstance(9,9, Image.SCALE_DEFAULT);
 		
-		threeImage =  ImageIO.read(new File("//Users//jay//CS 151//Project//snake//Snake//3.jpg"));
+		threeImage =  ImageIO.read(new File("././3.jpg"));
 		threeImage = threeImage.getScaledInstance(297,297, Image.SCALE_DEFAULT);	
 		
 		
-		twoImage =  ImageIO.read(new File("//Users//jay//CS 151//Project//snake//Snake//2.jpg"));
+		twoImage =  ImageIO.read(new File("././2.jpg"));
 		twoImage = 	twoImage.getScaledInstance(297,297, Image.SCALE_DEFAULT);
 		
-		oneImage =  ImageIO.read(new File("//Users//jay//CS 151//Project//snake//Snake//1.jpg"));
+		oneImage =  ImageIO.read(new File("././1.jpg"));
 		oneImage = 	oneImage.getScaledInstance(297,297, Image.SCALE_DEFAULT);
 		
 		
-		gameOverImage = ImageIO.read(new File("//Users//jay//CS 151//Project//snake//Snake//Game_Over.jpg"));
+		gameOverImage = ImageIO.read(new File("././Game_Over.jpg"));
 		gameOverImage = gameOverImage.getScaledInstance(297,297, Image.SCALE_DEFAULT);
 		
-		youWinImage = ImageIO.read(new File("//Users//jay//CS 151//Project//snake//Snake//youWin.jpeg"));
+		youWinImage = ImageIO.read(new File("././youWin.jpeg"));
 		youWinImage = youWinImage.getScaledInstance(297,297, Image.SCALE_DEFAULT);
 		
 		
