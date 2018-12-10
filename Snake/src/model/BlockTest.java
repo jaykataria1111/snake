@@ -13,10 +13,16 @@ class BlockTest {
 	Position pos  = new Position(23,32);
 	Block testBlock = new Block(pos);
 	
+	/**
+	 * Test method for {@link model.Block#testgetPos()}.
+	 */
 	@Test
 	void testgetPos(){
 		assertEquals(pos, testBlock.getPos());
 	}
+	/**
+	 * Test method for {@link model.Block#testsetPos()}.
+	 */
 	@Test
 	void testsetPos(){
 		Position pos  = new Position(26, 36);

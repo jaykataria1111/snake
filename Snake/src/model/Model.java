@@ -95,8 +95,8 @@ public class Model {
 	
 	
 	/**
-	 * Gets the X cordinate of the food position that was generated.
-	 * @return returns the x cordinate of the food position that was generated.
+	 * Gets the X coordinate of the food position that was generated.
+	 * @return returns the x coordinate of the food position that was generated.
 	 */
 	public Integer getFoodxPosition()
 	{
