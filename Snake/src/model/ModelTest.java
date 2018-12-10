@@ -19,10 +19,8 @@ class ModelTest {
 	void testSetSnake() {
 		Snake snake = new Snake(new Position(100,100) , 6);
 		model.setSnake(snake);
-		assertEquals(snake,model.getSnake());
-		
+		assertEquals(snake,model.getSnake());	
 	}
-
 	
 
 	/**
