@@ -4,7 +4,7 @@
 package message;
 
 /**
- * THe following class represents pressing the right button which is pressed. 
+ * The following class represents pressing the right button which is pressed. 
  * @author jay, nithil, kaushal
  *
  */
