@@ -23,8 +23,6 @@ public class Model {
 	public static final int winningSize = 40;
 	Snake snake;
 	Food food;
-	boolean playStarted;
-	boolean playEnded;
 	BlockingQueue<Message> queue;
 	private Random random;
 	
@@ -67,33 +65,9 @@ public class Model {
 		this.food = food;
 	}
 
-	/**
-	 * @return the playStarted
-	 */
-	public boolean isPlayStarted() {
-		return playStarted;
-	}
+	
 
-	/**
-	 * @param playStarted the playStarted to set
-	 */
-	public void setPlayStarted(boolean playStarted) {
-		this.playStarted = playStarted;
-	}
 
-	/**
-	 * @return the playEnded
-	 */
-	public boolean isPlayEnded() {
-		return playEnded;
-	}
-
-	/**
-	 * @param playEnded the playEnded to set
-	 */
-	public void setPlayEnded(boolean playEnded) {
-		this.playEnded = playEnded;
-	}
 
 	
 	public boolean ifWon()

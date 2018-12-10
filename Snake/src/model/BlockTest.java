@@ -6,7 +6,7 @@ import org.junit.*;
 import org.junit.jupiter.api.Test;
 /**
  * The following class tests a block on the screen.
- * @author Jay, Nithil, Kaushal
+ * @author Jay, Nithil, Kaushal.
  *
  */
 class BlockTest {
